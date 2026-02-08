@@ -3,7 +3,7 @@
 Simple Android app built with Dynamic SDK.
 
 Implemented 3 screens:
-1. Login (Email OTP)
+1. Login (Email OTP + modal bottom sheet verification)
 2. Wallet Details (Sepolia + balance)
 3. Send Transaction
 
@@ -15,6 +15,10 @@ Architecture is **MVVM + Repository + Hilt DI**.
 - Jetpack Compose screens
 - Material Design 3 components
 - `StateFlow`-driven UI state
+- feature-first structure:
+  - `feature/login/ui`
+  - `feature/walletdetails/ui`
+  - `feature/send/ui`
 
 2. ViewModel layer:
 - `@HiltViewModel`
@@ -22,30 +26,31 @@ Architecture is **MVVM + Repository + Hilt DI**.
 - loading/error/success states
 
 3. Data layer (repositories):
-- `AuthRepository` for OTP and logout
-- `WalletRepository` for EVM wallet, Sepolia switch, balance
-- `TransactionRepository` for EVM send transaction
+- `core/data/repository/AuthRepository` for OTP and logout
+- `core/data/repository/WalletRepository` for EVM wallet, Sepolia switch, balance
+- `core/data/repository/TransactionRepository` for EVM send transaction
 
 4. DI:
-- Hilt modules in `di/AppModule.kt`
+- Hilt modules in `core/di/AppModule.kt`
 - app entry with `@HiltAndroidApp`
 
 Navigation flow:
-- `Login -> Verify Email -> Wallet Details -> Send Transaction`
+- `Login -> Wallet Details -> Send Transaction`
+- OTP code verification is handled in Login via modal bottom sheet.
 
 ## How To Run
 
 1. Open project root in Android Studio:
-- `/Users/kurban/AndroidStudioProjects/CryptoWallet`
+- `AndroidStudioProjects/CryptoWallet`
 
 2. Create Dynamic project in [app.dynamic.xyz](https://app.dynamic.xyz)
 
 3. Set your `environmentId` in:
-- `/Users/kurban/AndroidStudioProjects/CryptoWallet/ExampleApp/DynamicSDKExample/src/main/java/com/dynamic/sdk/example/MainActivity.kt`
+- `CryptoWallet/ExampleApp/DynamicSDKExample/src/main/java/com/dynamic/sdk/example/MainActivity.kt`
 
 4. Ensure redirect scheme matches:
 - `redirectUrl` in `MainActivity.kt`
-- `<data android:scheme="...">` in `/Users/kurban/AndroidStudioProjects/CryptoWallet/ExampleApp/DynamicSDKExample/src/main/AndroidManifest.xml`
+- `<data android:scheme="...">` in `CryptoWallet/ExampleApp/DynamicSDKExample/src/main/AndroidManifest.xml`
 
 5. Sync Gradle and run `app` configuration on emulator/device.
 
@@ -55,11 +60,16 @@ Navigation flow:
 
 ## Screenshots (3 Screens)
 
+Place screenshots in:
+- `docs/screenshots/login.png`
+- `docs/screenshots/wallet.png`
+- `docs/screenshots/send.png`
+
 Preview:
 
-![Login](/Users/kurban/AndroidStudioProjects/CryptoWallet/docs/screenshots/login.png)
-![Wallet Details](/Users/kurban/AndroidStudioProjects/CryptoWallet/docs/screenshots/wallet.png)
-![Send Transaction](/Users/kurban/AndroidStudioProjects/CryptoWallet/docs/screenshots/send.png)
+![Login](docs/screenshots/login.png)
+![Wallet Details](docs/screenshots/wallet.png)
+![Send Transaction](docs/screenshots/send.png)
 
 ## Assumptions Made
 
