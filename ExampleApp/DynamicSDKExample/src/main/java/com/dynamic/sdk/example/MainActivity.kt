@@ -12,9 +12,11 @@ import com.dynamic.sdk.android.DynamicSDK
 import com.dynamic.sdk.android.UI.DynamicUI
 import com.dynamic.sdk.android.core.ClientProps
 import com.dynamic.sdk.android.core.LoggerLevel
-import com.dynamic.sdk.example.App.AppRootView
-import com.dynamic.sdk.example.ui.theme.DynamicSDKExampleTheme
+import com.dynamic.sdk.example.app.AppRootView
+import com.dynamic.sdk.example.core.ui.theme.DynamicSDKExampleTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,4 +50,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-

@@ -58,4 +58,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "DynamicSDKExample"
+rootProject.name = "CryptoWallet"
+
+include(":app")
+project(":app").projectDir = file("ExampleApp/DynamicSDKExample")
