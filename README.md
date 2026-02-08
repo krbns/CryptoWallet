@@ -55,11 +55,6 @@ Navigation flow:
 
 ## Screenshots (3 Screens)
 
-Place screenshots here:
-- `/Users/kurban/AndroidStudioProjects/CryptoWallet/docs/screenshots/login.png`
-- `/Users/kurban/AndroidStudioProjects/CryptoWallet/docs/screenshots/wallet.png`
-- `/Users/kurban/AndroidStudioProjects/CryptoWallet/docs/screenshots/send.png`
-
 Preview:
 
 ![Login](/Users/kurban/AndroidStudioProjects/CryptoWallet/docs/screenshots/login.png)
